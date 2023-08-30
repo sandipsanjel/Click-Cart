@@ -15,8 +15,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-@section("content")
-
+     {{View::make('header')}}
+    @yield('content')
+    {{View::make('footer')}}
 </body>
 {{-- <script>
 $(document ).ready(function()
