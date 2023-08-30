@@ -15,9 +15,10 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    
+@section("content")
+
 </body>
-<script>
+{{-- <script>
 $(document ).ready(function()
 {
    $("button").click(function()
@@ -25,5 +26,5 @@ $(document ).ready(function()
     alert("this is to check if jquery working well or not ")
 })
 } )
-</script>
+</script> --}}
 </html>
