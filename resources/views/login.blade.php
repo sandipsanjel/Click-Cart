@@ -2,6 +2,7 @@
 {{-- from here content section starts  --}}
 @section("content")
 <div class="container custom-login">
+    {{-- this methos is for the uesr authentication --}}
     <form action="login" method="POST">
         <div class="form-group">
             @csrf
