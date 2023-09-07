@@ -17,11 +17,11 @@ class ProductSeeder extends Seeder
         //
         DB::table('products')->insert([
             [
-                'name'=>'Oppo mobile',
-                "price"=>"300",
-                "description"=>"A smartphone with 8gb ram and much more feature",
-                "category"=>"mobile",
-                "gallery"=>"https://assetscdn1.paytm.com/images/catalog/product/M/MO/MOBOPPO-A52-6-GFUTU6297453D3D253C/1592019058170_0..png"
+                'name'=>'yatri',
+                "price"=>"500000",
+                "description"=>"Yatri bike price in Nepal starts at Rs. 5,65,000 for the most affordable model, P1, and goes up to Rs. 19,49,000 for the most expensive model",
+                "category"=>"bike",
+                "gallery"=>"https://www.yatrimotorcycles.com/assets/images/p1-3.jpg"
             ],
             [
                 'name'=>'Panasonic Tv',
