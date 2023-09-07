@@ -37,6 +37,15 @@ $(document ).ready(function()
         width: 50%;
         margin-left:50px
     }
+    img.slider-img{
+        height:400px !important;
+    }
+    .custom-procuct{
+        height:600px;
+    }
+    .slider-text{
+     color: #080909;
+    }
 </style>
 
 </html>
