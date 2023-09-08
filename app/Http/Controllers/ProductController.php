@@ -14,4 +14,12 @@ class ProductController extends Controller
         $data =product::all();
         return view ('product',['products'=>$data]);
     }
+    function detail($id)
+    {
+
+        // To retrive the specific details about  specific product based on id 
+        // product is an eloquent model representing product data
+        $data=product::find($id);
+        return view ('detail',['product'=>$data]);
+    }
 }

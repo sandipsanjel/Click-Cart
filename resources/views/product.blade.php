@@ -12,7 +12,8 @@
         {{-- for dynamic sliders content --}}
         <div class="carousel-inner">
           @foreach ($products as $item)
-          <div class="item {{$item['id']==1?'active':''}}">
+          {{-- to display the one products at a time in slider --}}
+          <div class="item {{$item['id']==1?'active':''}}"> 
           <a href="detail/{{$item['id']}}"> 
                 <img class="slider-img" src="{{$item['gallery']}}">
               <div class="carousel-caption slider-text">

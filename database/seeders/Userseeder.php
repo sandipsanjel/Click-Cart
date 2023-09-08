@@ -17,9 +17,9 @@ class Userseeder extends Seeder
     public function run()
     {//this seeder is used to seed the user data in database like user loging in into the system
         DB::table('users')->insert([
-            'name'=>'tom holland',
-                 'email'=>'tom@gmail.com',
-                 'password'=>Hash::make('123')
+            'name'=>'sandip',
+                 'email'=>'sandip@gmail.com',
+                 'password'=>Hash::make('1234')
         ]);
     }
 }

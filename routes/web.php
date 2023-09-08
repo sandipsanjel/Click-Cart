@@ -25,10 +25,9 @@ Route::post ("/login",[UserController::class,'login']);
 Route::get ("/",[ProductController::class,'index']);
 
 
+// Route to the detail page
+Route::get("detail/{id}",[ProductController::class,'detail']);
 
 
-// // to handle user logout anf redirect them to the login page 
-// Route::get('/logout',function(){//users accesses the logout URL via GET req
-//     Session::forget('user');//to remove the the users inforamtion form session
-//     return redirect ('login');//after removing users data it redirects to the login page 
-// });
+
+
