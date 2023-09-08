@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\cart;
+// use Illuminate\Support\Facades\Session;
+
 
 class ProductController extends Controller
 {
@@ -22,4 +25,34 @@ class ProductController extends Controller
         $data=product::find($id);
         return view ('detail',['product'=>$data]);
     }
-}
+// function addTocart(request $req){
+//     if($req->session()->has('user'))
+//     {
+//        $cart= new cart;
+//        $cart->user_id=$req->session()->get('user')['id'];
+//        $cart->product_id=$req->product_id;
+//        $cart->save();
+//        return redirect('/');
+// }
+// else return redirect('/login');
+// }
+// }
+function addTocart(Request $req)
+{
+    if ($req->session()->has('user')) {
+        $cart = new Cart;
+        $cart->user_id = $req->session()->get('user')['id'];
+        $cart->product_id = $req->product_id;
+        $cart->save();
+       return redirect('/');
+    } else {
+        return redirect('/login');
+    }
+ 
+}}
+
+
+
+
+
+

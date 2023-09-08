@@ -24,8 +24,8 @@
           </div>
           <button type="submit" class="btn btn-default">Search</button>
         </form>
-        {{-- <ul class="nav navbar-nav navbar-right">
-          {{-- <li><a href="/cartlist">cart({{$total}})</a></li> --}}
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/cartlist">cart</a></li>
           {{-- @if(Session::has('user'))
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{Session::get('user')['name']}}
@@ -33,8 +33,8 @@
             <ul class="dropdown-menu">
               <li><a href="/logout">Logout</a></li>
             </ul>
-          </li> --}}
-          {{-- @else
+          </li> 
+           @else
           <li><a href="/login">Login</a></li>
           @endif  --}}
           
