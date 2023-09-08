@@ -44,7 +44,17 @@ $(document ).ready(function()
         height:600px;
     }
     .slider-text{
-     color: #080909;
+     color: #080909 !important;
+    }
+    .trending-image{
+        height:100px;
+    }
+    .trending-item{
+        float: left;
+        width:20%;
+    }
+    .trending-wrapper{
+        margin:30px
     }
 </style>
 
