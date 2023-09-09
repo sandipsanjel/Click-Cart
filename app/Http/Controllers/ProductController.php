@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\cart;
-
-use Session;
+use Illuminate\Support\Facades\session;
 
 
 class ProductController extends Controller
