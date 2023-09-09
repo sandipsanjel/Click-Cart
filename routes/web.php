@@ -34,6 +34,9 @@ Route::get ("/",[ProductController::class,'index']);
 Route::get("detail/{id}",[ProductController::class,'detail']);
 // To add iteam in cart
 Route::post("add_to_cart",[ProductController::class,'addToCart']);
+//display iteam in cart page 
+Route::get("cartlist",[ProductController::class,'cartlist']);
+
 
 
 

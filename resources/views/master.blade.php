@@ -59,6 +59,12 @@ $(document ).ready(function()
     .detail-img{
         height:200px
     }
+    .cart-border
+    {
+        border-bottom:1px solid #ccc;
+        margin-bottom: 20px;
+        padding-bottom:20px;
+    }
 </style>
 
 </html>
