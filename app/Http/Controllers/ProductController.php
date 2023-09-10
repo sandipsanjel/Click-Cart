@@ -41,11 +41,14 @@ function addTocart(Request $req)
     }
  
 }
+// to display the number of item in cart
 static function cartItem()
 {
  $userId=Session::get('user')['id'];
  return Cart::where('user_id',$userId)->count();
 }
+
+// display cart item in cartlist page
 function cartlist()
 {$userId=Session::get('user')['id'];
     $products=DB::table('cart')
@@ -55,11 +58,23 @@ function cartlist()
     return view('cartlist',['products'=>$products]);
 
 }
+// TO remove item form cart
 function removeCart($id){
 
     Cart::destroy($id);
     return redirect('cartlist');
 }
+// order migration 
+function orderNow(){
+    
+        $userId=Session::get('user')['id'];
+        $total= $products= DB::table('cart')
+         ->join('products','cart.product_id','=','products.id')
+         ->where('cart.user_id',$userId)
+         ->sum('products.price');
+ 
+         return view('ordernow',['total'=>$total]);
+    }
 
 }
 
