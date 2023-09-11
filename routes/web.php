@@ -25,7 +25,8 @@ Route::get('/logout', function () {
     Session::forget('user'); //to forget the users session from browser
     return redirect('login');
 });
-
+Route::view('/register','register');
+Route::post ("/register",[UserController::class,'register']);
 Route::post ("/login",[UserController::class,'login']);
 Route::get ("/",[ProductController::class,'index']);
 
