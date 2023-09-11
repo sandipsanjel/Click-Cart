@@ -32,6 +32,8 @@ Route::get ("/",[ProductController::class,'index']);
 
 // Route to the detail page
 Route::get("detail/{id}",[ProductController::class,'detail']);
+Route::get("search",[ProductController::class,'search']);
+
 // To add iteam in cart
 Route::post("add_to_cart",[ProductController::class,'addToCart']);
 //display iteam in cart page 
@@ -39,8 +41,9 @@ Route::get("cartlist",[ProductController::class,'cartlist']);
 Route::get("removecart/{id}",[ProductController::class,'removeCart']);
 
 Route::get("ordernow",[ProductController::class,'orderNow']);
-
+//order place in orders table DB 
 Route::post("orderplace",[ProductController::class,'orderPlace']);
+Route::get("myorders",[ProductController::class,'myOrders']);
 
 
 

@@ -83,9 +83,8 @@ class ProductController extends Controller
     {
         $userId = Session::get('user')['id'];
         $allcart = cart::where('user_id', $userId)->get(); //get user id info form cart to allcasrt variable 
-        foreach ($allcart as $cart) 
-        {
-            $order = new order; //order variable will be instance of order model
+        foreach ($allcart as $cart) {
+            $order = new Order; //order variable will be instance of order model
             $order->product_id = $cart['product_id']; //data is geting form db 
             $order->user_id = $cart['user_id']; ///data is geting form db 
             $order->order_status = "pending";
@@ -93,10 +92,26 @@ class ProductController extends Controller
             $order->payment_status = "pending"; //data from form submition 
             $order->address = $req->address;
             $order->save();
-            Cart::where('user_id',$userId)->delete(); 
-
+            Cart::where('user_id', $userId)->delete();
         }
         $req->input();
         return redirect("/");
+    }
+
+    //search method takes a user's search query from the request, searches for products whose names contain that query, and returns the matching products as a collection in the $data variable. 
+    function search(Request $req)
+    {
+        $data = product::where('name', 'like', '%' . $req->input('query') . '%')
+            ->get();
+        return view('search', ['products' => $data]);
+    }
+    function myOrders()
+    {
+        $userId = Session::get('user')['id'];
+        $orders = DB::table('orders')
+            ->join('products', 'orders.product_id', '=', 'products.id')
+            ->where('orders.user_id', $userId)
+            ->get();
+        return view('myorders', ['orders' => $orders]);
     }
 }
