@@ -31,9 +31,9 @@
                 </div>
                 <div class="form-group">
                   <label for="pwd">Payment Method</label> <br> <br>
-                  <input type="radio" value="cash" name="payment"> <span>online payment</span> <br> <br>
-                  <input type="radio" value="cash" name="payment"> <span>EMI payment</span> <br><br>
-                  <input type="radio" value="cash" name="payment"> <span>Payment on Delivery</span> <br> <br>
+                  <input type="radio" value="online" name="payment"> <span>online payment</span> <br> <br>
+                  <input type="radio" value="online" name="payment"> <span>EMI payment</span> <br><br>
+                  <input type="radio" value="cash on delivery" name="payment"> <span>Payment on Delivery</span> <br> <br>
 
                 </div>
                 <button type="submit" class="btn btn-default">Order Now</button>

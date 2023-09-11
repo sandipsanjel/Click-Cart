@@ -15,7 +15,7 @@
              <div class="col-sm-4">
                     <div class="">
                       <h2>Name: {{$item->name}}</h2>
-                      <h5>Status: {{$item->order_status}}</h5>
+                      <h5>Order Status: {{$item->order_status}}</h5>
                       <h5>Payment Status: {{$item->payment_status}}</h5>
                       <h5>Payment method: {{$item->payment_method}}</h5>
                       <h5>Address: {{$item->address}}</h5>
