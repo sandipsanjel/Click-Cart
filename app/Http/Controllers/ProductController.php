@@ -9,9 +9,6 @@ use Illuminate\Support\Facades\session;
 use Illuminate\Support\Facades\DB;
 use App\Models\order;
 
-
-
-
 class ProductController extends Controller
 {
     function index()
@@ -95,7 +92,7 @@ class ProductController extends Controller
             Cart::where('user_id', $userId)->delete();
         }
         $req->input();
-        return redirect("/");
+        return redirect("/myorders");
     }
 
     //search method takes a user's search query from the request, searches for products whose names contain that query, and returns the matching products as a collection in the $data variable. 
@@ -113,5 +110,41 @@ class ProductController extends Controller
             ->where('orders.user_id', $userId)
             ->get();
         return view('myorders', ['orders' => $orders]);
+    }
+
+
+    public function verify(Request $req)
+    {
+        $args = http_build_query(array(
+            'token' => $req->token, //to verify we need to components token and amount 
+            'amount'  => 1000 //rtn we are sending exactly 1000 pisos otherwise we use db
+        ));
+        //requesting to verify the trasaction using curl 
+        $url = "https://khalti.com/api/v2/payment/verify/";
+
+        # Make the call using API.
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $args);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+        $headers = ['Authorization: Key test_secret_key_88a83688c0e041bab614c6b2b2ec5d46'];
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        // Response
+        $response = curl_exec($ch);
+        $error = curl_error($ch);
+        $status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+
+        if ($error) {
+            // Handle cURL error
+            return response()->json(['error' => 1, 'message' => 'cURL error: ' . $error]);
+        } elseif ($status_code == 200) {
+            return response()->json(['success' => 1, 'redirecto' => route('ordernow')]);
+        } else {
+            return response()->json(['error' => 1, 'message' => 'Payment failed']);
+        }
     }
 }

@@ -31,7 +31,9 @@
                 </div>
                 <div class="form-group">
                   <label for="pwd">Payment Method</label> <br> <br>
-                  <input type="radio" value="online" name="payment"> <span>online payment</span> <br> <br>
+                  <input id="payment-button" type="radio" value="online" name="payment"> <span>Pay with Khalti </span> <br> <br>
+                  {{-- <button id="payment-button">Pay with Khalti</button><br> <br> --}}
+
                   <input type="radio" value="online" name="payment"> <span>EMI payment</span> <br><br>
                   <input type="radio" value="cash on delivery" name="payment"> <span>Payment on Delivery</span> <br> <br>
 
@@ -41,4 +43,5 @@
           </div>
      </div>
 </div>
+
 @endsection 

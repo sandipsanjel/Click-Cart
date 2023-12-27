@@ -1,9 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Facade;
+
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\session;
+
 
 
 /*
@@ -25,8 +29,15 @@ Route::get('/logout', function () {
     Session::forget('user'); //to forget the users session from browser
     return redirect('login');
 });
-Route::view('/register','register');
-Route::post ("/register",[UserController::class,'register']);
+
+
+// Route::get("/register",[RegisterController::class,'index']);
+// Route::post ("/register",[RegisterController::class,'register']);
+Route::get('/register',[RegisterController::class,'index']);
+Route::post('/register',[RegisterController::class,'register']);
+
+// Route::get('/register','RegisterControllerController@register')->name('register');
+// Route::post('/register', 'RegisterControllerController@create');
 Route::post ("/login",[UserController::class,'login']);
 Route::get ("/",[ProductController::class,'index']);
 
@@ -46,14 +57,5 @@ Route::get("ordernow",[ProductController::class,'orderNow']);
 Route::post("orderplace",[ProductController::class,'orderPlace']);
 Route::get("myorders",[ProductController::class,'myOrders']);
 
-
-
-
-
-
-
-
-
-
-
-
+//route to verify the transactions 
+Route::post("khalti/verify",[ProductController::class,'verify'])->name('ajax.khalti.verfy_order');
